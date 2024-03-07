@@ -1,0 +1,65 @@
+Item,level_1,level_2,level_3,level_4,level_5
+Kashmiri indian tea,Drink,Tea-based,Asian,Middle Asia,Indian
+Masala Indian Chai,Drink,Tea-based,Asian,Middle Asia,Indian
+Persian herbal tea,Drink,Tea-based,Asian,Middle Asia,Iranian
+Gol Gav Zaban tea,Drink,Tea-based,Asian,Middle Asia,Iranian
+Oolong tea,Drink,Tea-based,Asian,East Asia,Chinese
+hot jasmine tea,Drink,Tea-based,Asian,East Asia,Chinese
+Matcha green tea,Drink,Tea-based,Asian,East Asia,Japanese
+Genmaicha tea,Drink,Tea-based,Asian,East Asia,Japanese
+Sencha-style Portugalese green tea,Drink,Tea-based,European,Green teas,Portugalese
+Portugalese Gunpowder tea,Drink,Tea-based,European,Green teas,Portugalese
+Matcha green tea (European Varieties),Drink,Tea-based,European,Green teas,Others
+European Herbal Green Teas,Drink,Tea-based,European,Green teas,Others
+earl grey superior organic tea,Drink,Tea-based,European,Black teas,English
+English breakfast tea,Drink,Tea-based,European,Black teas,English
+Caravan tea,Drink,Tea-based,European,Black teas,Russian
+Zavarka tea,Drink,Tea-based,European,Black teas,Russian
+Colombian coffee,Drink,Coffee-based,American,South America,Others
+Puerto Rican Coffee,Drink,Coffee-based,American,South America,Others
+Jamaican Blue Mountain Coffee,Drink,Coffee-based,American,South America,Jamaican
+Jamaican Coffee Blends,Drink,Coffee-based,American,South America,Jamaican
+Starbucks regular coffee,Drink,Coffee-based,American,North America,United States
+Kona Hawaian coffe,Drink,Coffee-based,American,North America,United States
+Tim Hortons regular Coffee,Drink,Coffee-based,American,North America,Canadian
+Van Houtte coffee,Drink,Coffee-based,American,North America,Canadian
+Cardamom Turkish Coffee,Drink,Coffee-based,European,Others,Turkish
+Sweet Turkish Coffee,Drink,Coffee-based,European,Others,Turkish
+Vienna Coffee,Drink,Coffee-based,European,Others,Others
+Irish Coffee,Drink,Coffee-based,European,Others,Others
+Cappuccino,Drink,Coffee-based,European,Italian,With milk
+Macchiato,Drink,Coffee-based,European,Italian,With milk
+Espresso,Drink,Coffee-based,European,Italian,Without milk
+Affogato desert coffee,Drink,Coffee-based,European,Italian,Without milk
+New York-style pizza,Main course,Fast food,pizza,American,Thin crust
+Thin crust pepperoni pizza,Main course,Fast food,pizza,American,Thin crust
+Chicago Deep Dish Pizza,Main course,Fast food,pizza,American,Thick crust
+Thick crust pepperoni pizza,Main course,Fast food,pizza,American,Thick crust
+Roman Thin crust pizza,Main course,Fast food,pizza,Italian,Thin crust
+Margherita Thin crust pizza,Main course,Fast food,pizza,Italian,Thin crust
+Margherita Thick crust pizza,Main course,Fast food,pizza,Italian,Thick crust
+Sicilian thick crust italian pizza,Main course,Fast food,pizza,Italian,Thick crust
+Big Mac (McDonald's) burger,Main course,Fast food,sandwich,Burgers,American
+Jumbo California vegan burger,Main course,Fast food,sandwich,Burgers,American
+Deluxe Mexican burger,Main course,Fast food,sandwich,Burgers,Others
+Italiano burger,Main course,Fast food,sandwich,Burgers,Others
+Steak fries topped with fried beef hot dogs,Main course,Fast food,sandwich,Others,hot dogs
+New York Style Hot Dog,Main course,Fast food,sandwich,Others,hot dogs
+McDonald's McChicken,Main course,Fast food,sandwich,Others,Others
+Subway's Italian BMT,Main course,Fast food,sandwich,Others,Others
+Sashimi,Main course,Regular,Sea food,Fish,Japanese
+Sushi,Main course,Regular,Sea food,Fish,Japanese
+Kaviar fish,Main course,Regular,Sea food,Fish,Persian
+Sabzi Polo ba Mahi,Main course,Regular,Sea food,Fish,Persian
+Lobster roll,Main course,Regular,Sea food,Others,Lobsters
+Lobster Thermidor,Main course,Regular,Sea food,Others,Lobsters
+Shrimp Pad Thai,Main course,Regular,Sea food,Others,Shrimps
+Shrimp Scampi,Main course,Regular,Sea food,Others,Shrimps
+Mississippi Pork Chops,Main course,Regular,Others,Beef and Pork,American
+Pan-Seared Strip Steaks,Main course,Regular,Others,Beef and Pork,American
+Swedish Meatballs,Main course,Regular,Others,Beef and Pork,European
+Italian Grilled Stuffed Beef Rolls,Main course,Regular,Others,Beef and Pork,European
+Butter Chicken (Murgh Makhani),Main course,Regular,Others,Chicken,Indian
+Chicken Tikka,Main course,Regular,Others,Chicken,Indian
+Chicken-Fried Steak With Cream Gravy,Main course,Regular,Others,Chicken,Others
+Korean Fried Chicken,Main course,Regular,Others,Chicken,Others
