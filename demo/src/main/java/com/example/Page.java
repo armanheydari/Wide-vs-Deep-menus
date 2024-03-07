@@ -10,6 +10,7 @@ import javafx.application.Platform;
 
 public class Page {
     private Stage stage;
+    private Dataset dataset;
     private int page_level, total_depth, mistakes_no;
     private boolean is_first = false, is_last=false;
     private double duration;
@@ -19,6 +20,7 @@ public class Page {
     @SuppressWarnings("exports")
     public Page(Stage stage, int page_level, int total_depth, int mistakes_no, double duration, String answer) {
         this.stage = stage;
+        this.dataset = new Dataset("C:\\Usask\\wide-vs-deep-menu\\Menu.csv");
         this.page_level = page_level;
         this.total_depth = total_depth;
         this.mistakes_no = mistakes_no;
