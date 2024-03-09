@@ -1,12 +1,15 @@
 package com.example;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.*;
 
 public class Dataset {
     List<String> lines = new ArrayList<>();
+    String output_path = "C:\\Usask\\wide-vs-deep-menu\\Output.csv";
 
     public Dataset(String path) {
         try (BufferedReader reader = new BufferedReader(new FileReader(path))) {
@@ -28,7 +31,7 @@ public class Dataset {
     }
 
     public List<Integer> selectRandomLevels() {
-        List<Integer> list = new ArrayList<>(Arrays.asList(1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6));
+        List<Integer> list = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5, 6));
         Collections.shuffle(list);
         return list;
     }
@@ -68,7 +71,12 @@ public class Dataset {
     }
 
     public void saveRecord(String item_name, int depth, int mistakes_no, double duration){
-        System.out.println(item_name + "     Duration: " + duration + "     mistakes: " + mistakes_no + "     depth: " + depth);
-        System.out.println("-------------------------");
+        String record = item_name + "," + depth + "," + duration + "," + mistakes_no;
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(output_path, true))) {
+            writer.newLine();
+            writer.write(record);
+        } catch (IOException e) {
+            e.printStackTrace();
+        } 
     }
 }

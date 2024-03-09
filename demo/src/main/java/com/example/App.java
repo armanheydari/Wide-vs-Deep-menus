@@ -15,7 +15,7 @@ public class App extends Application {
         
         Dataset dataset = new Dataset("C:\\Usask\\wide-vs-deep-menu\\Menu.csv");
         List<Integer> random_depths = dataset.selectRandomLevels();
-        List<Integer> random_items = dataset.selectRandomItems(12);
+        List<Integer> random_items = dataset.selectRandomItems(6);
         List<String> clicked_path = new ArrayList<>();
         
         Page page = new Page(primaryStage, 1, random_depths, random_items, 0, 0, clicked_path);

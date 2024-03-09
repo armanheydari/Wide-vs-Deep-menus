@@ -3,9 +3,9 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.control.ScrollPane.ScrollBarPolicy;
 import javafx.stage.Stage;
 
 import java.util.ArrayList;
@@ -51,18 +51,18 @@ public class Page {
     }
 
     public void display() {
-        System.out.println(item_answer + "  " + page_answer);
-        System.out.println(page_level);
-        System.out.println(random_depths);
-        System.out.println(random_items);
-        System.out.println(clicked_path);
-        System.out.println(is_first);
-        System.out.println(is_last);
+        // System.out.println(item_answer + "  " + page_answer);
+        // System.out.println(page_level);
+        // System.out.println(random_depths);
+        // System.out.println(random_items);
+        // System.out.println(clicked_path);
+        // System.out.println(is_first);
+        // System.out.println(is_last);
 
         VBox layout = new VBox(10);
         layout.setAlignment(Pos.CENTER);
 
-        Label label = new Label((13-random_items.size()) + "/12");
+        Label label = new Label((7-random_items.size()) + "/6");
         label.getStyleClass().add("label");
         layout.getChildren().add(0, label);
         label = new Label("Order " + item_answer);
@@ -83,24 +83,19 @@ public class Page {
                     if (is_last){
                         dataset.saveRecord(item_answer, random_depths.get(0), mistakes_no, duration);
                         if (random_depths.size()==1){
-                            System.out.println("case 1");
                             Platform.exit();
                         }
                         else {
-                            System.out.println("case 2");
                             new Page(stage, 1, next_list(random_depths), next_list(random_items), 0, 0, new ArrayList<>()).display();
                         }
                     }
                     else {
-                        System.out.println("case 3");
                         new Page(stage, page_level+1, random_depths, random_items, mistakes_no, duration, clicked_path).display();
                     }
                 }
                 else {
                     mistakes_no = mistakes_no + 1;
-                    System.out.println("case 4");
                     if (!is_last) {
-                        System.out.println("case 5");
                         duration = duration + (System.nanoTime() - start_time) / 1_000_000_000.0;
                         new Page(stage, page_level+1, random_depths, random_items, mistakes_no, duration, clicked_path).display();
                     }
@@ -120,11 +115,10 @@ public class Page {
             });
             layout.getChildren().add(backButton);
         }
-
-        ScrollPane scrollPane = new ScrollPane(layout);
-        StackPane stackPane = new StackPane(scrollPane);
-        stackPane.setAlignment(Pos.CENTER);
-        Scene scene = new Scene(stackPane, 960, 600);
+        ScrollPane scrollPane = new ScrollPane();
+        scrollPane.setContent(layout);
+        scrollPane.setVbarPolicy(ScrollBarPolicy.ALWAYS);
+        Scene scene = new Scene(scrollPane, 960, 600);
         scene.getStylesheets().add(getClass().getResource("/com/example/styles.css").toExternalForm());
         stage.setScene(scene);
         stage.show();
