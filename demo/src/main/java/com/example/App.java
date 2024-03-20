@@ -11,7 +11,7 @@ public class App extends Application {
     @SuppressWarnings("exports")
     @Override
     public void start(Stage primaryStage) {
-        primaryStage.setTitle("Menu Playground");
+        primaryStage.setTitle("Wide vs Deep Menu");
         
         Dataset dataset = new Dataset("C:\\Usask\\wide-vs-deep-menu\\Menu.csv");
         List<Integer> random_depths = dataset.selectRandomLevels();

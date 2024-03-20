@@ -5,6 +5,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.layout.StackPane;
 import javafx.scene.control.ScrollPane.ScrollBarPolicy;
 import javafx.stage.Stage;
 
@@ -51,14 +52,6 @@ public class Page {
     }
 
     public void display() {
-        // System.out.println(item_answer + "  " + page_answer);
-        // System.out.println(page_level);
-        // System.out.println(random_depths);
-        // System.out.println(random_items);
-        // System.out.println(clicked_path);
-        // System.out.println(is_first);
-        // System.out.println(is_last);
-
         VBox layout = new VBox(10);
         layout.setAlignment(Pos.CENTER);
 
@@ -115,12 +108,13 @@ public class Page {
             });
             layout.getChildren().add(backButton);
         }
-        ScrollPane scrollPane = new ScrollPane();
-        scrollPane.setContent(layout);
-        scrollPane.setVbarPolicy(ScrollBarPolicy.ALWAYS);
-        Scene scene = new Scene(scrollPane, 960, 600);
+        ScrollPane scrollPane = new ScrollPane(layout);
+        // scrollPane.setContent(layout);
+        // scrollPane.setVbarPolicy(ScrollBarPolicy.AS_NEEDED);
+        Scene scene = new Scene(scrollPane, 800, 600);
         scene.getStylesheets().add(getClass().getResource("/com/example/styles.css").toExternalForm());
         stage.setScene(scene);
+        stage.setMaximized(true);
         stage.show();
     }
 
