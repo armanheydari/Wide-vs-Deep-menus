@@ -64,7 +64,7 @@ public class Page {
         buttonsVBox.setAlignment(Pos.CENTER);
 
 
-        Label label = new Label((7-random_items.size()) + "/6");
+        Label label = new Label((13-random_items.size()) + "/6");
         label.getStyleClass().add("label");
         layout.getChildren().add(0, label);
         label = new Label("Order " + item_answer);

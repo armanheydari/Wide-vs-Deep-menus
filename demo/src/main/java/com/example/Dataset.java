@@ -31,7 +31,7 @@ public class Dataset {
     }
 
     public List<Integer> selectRandomLevels() {
-        List<Integer> list = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5, 6));
+        List<Integer> list = new ArrayList<>(Arrays.asList(1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6));
         Collections.shuffle(list);
         return list;
     }
