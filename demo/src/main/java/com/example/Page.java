@@ -6,7 +6,6 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.StackPane;
-import javafx.scene.control.ScrollPane.ScrollBarPolicy;
 import javafx.stage.Stage;
 
 import java.util.ArrayList;
@@ -55,6 +54,16 @@ public class Page {
         VBox layout = new VBox(10);
         layout.setAlignment(Pos.CENTER);
 
+
+        Button button1 = new Button("Button 1");
+        Button button2 = new Button("Button 2");
+
+        // Create a VBox to hold the buttons
+        VBox buttonsVBox = new VBox(button1, button2);
+        buttonsVBox.setSpacing(10); // Add some spacing between buttons
+        buttonsVBox.setAlignment(Pos.CENTER);
+
+
         Label label = new Label((7-random_items.size()) + "/6");
         label.getStyleClass().add("label");
         layout.getChildren().add(0, label);
@@ -89,12 +98,12 @@ public class Page {
                 else {
                     mistakes_no = mistakes_no + 1;
                     if (!is_last) {
-                        duration = duration + (System.nanoTime() - start_time) / 1_000_000_000.0;
                         new Page(stage, page_level+1, random_depths, random_items, mistakes_no, duration, clicked_path).display();
                     }
                 }
             });
             layout.getChildren().add(buttons[i]);
+            duration = duration + (System.nanoTime() - start_time) / 1_000_000_000.0;
             i = i + 1;
         }
 
@@ -108,13 +117,16 @@ public class Page {
             });
             layout.getChildren().add(backButton);
         }
+
         ScrollPane scrollPane = new ScrollPane(layout);
-        // scrollPane.setContent(layout);
-        // scrollPane.setVbarPolicy(ScrollBarPolicy.AS_NEEDED);
-        Scene scene = new Scene(scrollPane, 800, 600);
+        scrollPane.setFitToWidth(true); // Allow the ScrollPane to fit the width of the Scene
+        scrollPane.setFitToHeight(true); // Allow the ScrollPane to fit the height of the Scene
+
+        StackPane root = new StackPane(scrollPane);
+        root.setAlignment(Pos.CENTER); // Center the S
+        Scene scene = new Scene(root, 800, 600);
         scene.getStylesheets().add(getClass().getResource("/com/example/styles.css").toExternalForm());
         stage.setScene(scene);
-        stage.setMaximized(true);
         stage.show();
     }
 
