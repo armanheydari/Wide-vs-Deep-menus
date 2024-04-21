@@ -17,7 +17,7 @@ import javafx.application.Platform;
 public class Page {
     private Stage stage;
     private Dataset dataset;
-    private List<Integer> random_depths, random_items;
+    private List<Integer> random_depths, random_items, branch_factors;
     private List<String> clicked_path;
     private int page_level, mistakes_no;
     private boolean is_first = false, is_last=false;
@@ -26,12 +26,16 @@ public class Page {
     private String item_answer, page_answer;
 
     @SuppressWarnings("exports")
-    public Page(Stage stage, int page_level,  List<Integer> random_depths, List<Integer> random_items, int mistakes_no, double duration, List<String> clicked_path) {
+    public Page(Stage stage, int page_level,  List<Integer> random_depths, List<Integer> random_items, List<Integer> branch_factors, int mistakes_no, double duration, List<String> clicked_path) {
         this.stage = stage;
         this.dataset = new Dataset("C:\\Usask\\wide-vs-deep-menu\\Menu.csv");
         this.page_level = page_level;
         this.random_depths = random_depths;
         this.random_items = random_items;
+        if (this.random_depths.get(0)==4){
+            this.random_items.set(0, random_items.get(0) + 64);
+        }
+        this.branch_factors = branch_factors;
         this.mistakes_no = mistakes_no;
         if (page_level==1){
             this.is_first = true;
@@ -51,6 +55,10 @@ public class Page {
     }
 
     public void display() {
+        System.out.println(branch_factors);
+        System.out.println(random_depths);
+        System.out.println(random_items);
+        System.out.println("------------");
         VBox layout = new VBox(10);
         layout.setAlignment(Pos.CENTER);
 
@@ -64,14 +72,14 @@ public class Page {
         buttonsVBox.setAlignment(Pos.CENTER);
 
 
-        Label label = new Label((13-random_items.size()) + "/12");
+        Label label = new Label((11-random_items.size()) + "/10");
         label.getStyleClass().add("label");
         layout.getChildren().add(0, label);
         label = new Label("Order " + item_answer);
         label.getStyleClass().add("label");
         layout.getChildren().add(1, label);
         
-        List<String> button_texts = dataset.possibleButtons(is_last, clicked_path);
+        List<String> button_texts = dataset.possibleButtons(is_last, clicked_path, branch_factors.get(0));
         Button[] buttons = new Button[button_texts.size()];
         int i = 0;
         start_time = System.nanoTime();
@@ -83,22 +91,22 @@ public class Page {
                 if (button_text.equals(page_answer)){
                     duration = duration + (System.nanoTime() - start_time) / 1_000_000_000.0;
                     if (is_last){
-                        dataset.saveRecord(item_answer, random_depths.get(0), mistakes_no, duration);
+                        dataset.saveRecord(item_answer, random_depths.get(0), mistakes_no, duration, branch_factors.get(0));
                         if (random_depths.size()==1){
                             Platform.exit();
                         }
                         else {
-                            new Page(stage, 1, next_list(random_depths), next_list(random_items), 0, 0, new ArrayList<>()).display();
+                            new Page(stage, 1, next_list(random_depths), next_list(random_items), next_list(branch_factors), 0, 0, new ArrayList<>()).display();
                         }
                     }
                     else {
-                        new Page(stage, page_level+1, random_depths, random_items, mistakes_no, duration, clicked_path).display();
+                        new Page(stage, page_level+1, random_depths, random_items, branch_factors, mistakes_no, duration, clicked_path).display();
                     }
                 }
                 else {
                     mistakes_no = mistakes_no + 1;
                     if (!is_last) {
-                        new Page(stage, page_level+1, random_depths, random_items, mistakes_no, duration, clicked_path).display();
+                        new Page(stage, page_level+1, random_depths, random_items, branch_factors, mistakes_no, duration, clicked_path).display();
                     }
                 }
             });
@@ -113,7 +121,7 @@ public class Page {
             backButton.setOnAction(e -> {
                 duration = duration + (System.nanoTime() - start_time) / 1_000_000_000.0;
                 clicked_path.remove(clicked_path.size()-1);
-                new Page(stage, page_level-1, random_depths, random_items, mistakes_no, duration, clicked_path).display();
+                new Page(stage, page_level-1, random_depths, random_items, branch_factors, mistakes_no, duration, clicked_path).display();
             });
             layout.getChildren().add(backButton);
         }
