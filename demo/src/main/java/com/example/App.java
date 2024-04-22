@@ -19,7 +19,7 @@ public class App extends Application {
         List<Integer> random_depths = lists.get(0);
         List<Integer> branch_factors = lists.get(1);
 
-        List<Integer> random_items = dataset.selectRandomItems(10);
+        List<Integer> random_items = dataset.selectRandomItems(10, branch_factors);
         
         List<String> clicked_path = new ArrayList<>();
         

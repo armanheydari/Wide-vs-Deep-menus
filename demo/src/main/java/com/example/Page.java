@@ -32,9 +32,6 @@ public class Page {
         this.page_level = page_level;
         this.random_depths = random_depths;
         this.random_items = random_items;
-        if (this.random_depths.get(0)==4){
-            this.random_items.set(0, random_items.get(0) + 64);
-        }
         this.branch_factors = branch_factors;
         this.mistakes_no = mistakes_no;
         if (page_level==1){
@@ -55,10 +52,10 @@ public class Page {
     }
 
     public void display() {
-        System.out.println(branch_factors);
-        System.out.println(random_depths);
-        System.out.println(random_items);
-        System.out.println("------------");
+        // System.out.println(branch_factors);
+        // System.out.println(random_depths);
+        // System.out.println(random_items);
+        // System.out.println("------------");
         VBox layout = new VBox(10);
         layout.setAlignment(Pos.CENTER);
 

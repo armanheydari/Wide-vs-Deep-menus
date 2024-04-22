@@ -21,34 +21,39 @@ public class Dataset {
         catch (IOException e) {e.printStackTrace();}
     }
     
-    public List<Integer> selectRandomItems(int n) {
+    public List<Integer> selectRandomItems(int n, List<Integer> branch_factors) {
         Random rand = new Random();
-        Set<Integer> randomNumbers = new HashSet<>();
+        Set<Integer> randomNumbers = new LinkedHashSet<>();
         while (randomNumbers.size() < n) {
-            randomNumbers.add(rand.nextInt(64) + 1);
+            int r = rand.nextInt(64) + 1;
+            if (branch_factors.get(randomNumbers.size())==4){
+                r = r + 64;
+            }
+            randomNumbers.add(r);
         }
         return new ArrayList<>(randomNumbers);
     }
 
     public List<List<Integer>> selectRandomLevels() {
-        List<Integer> list_1 = new ArrayList<>(Arrays.asList(1, 2, 2, 3, 3, 4, 5, 2, 6, 3));
-        List<Integer> list_2 = new ArrayList<>(Arrays.asList(4, 2, 4, 2, 4, 2, 2, 2, 4, 2, 4));
+        List<Integer> list_1 = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5, 6, 2, 2, 3, 3));
+        List<Integer> list_2 = new ArrayList<>(Arrays.asList(2, 2, 2, 2, 2, 2, 4, 4, 4, 4));
         List<Integer> indices = new ArrayList<>(Arrays.asList(0, 1, 2, 3, 4, 5, 6, 7, 8, 9));
         
+
         Collections.shuffle(indices);
 
         // Create new lists for the shuffled elements
-        List<Integer> random_levels = new ArrayList<>();
+        List<Integer> random_depths = new ArrayList<>();
         List<Integer> branch_factors = new ArrayList<>();
 
         // Add elements in the order of the shuffled indices
         for (int i : indices) {
-            random_levels.add(list_1.get(i));
+            random_depths.add(list_1.get(i));
             branch_factors.add(list_2.get(i));
         }
 
         List<List<Integer>> lists = new ArrayList<>();
-        lists.add(random_levels);
+        lists.add(random_depths);
         lists.add(branch_factors);
 
         return lists;
